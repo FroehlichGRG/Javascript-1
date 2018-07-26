@@ -3,11 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <title>Lesson 01</title>
-    <script src="jscript/javascript-lesson-01.js"></script>
 </head>
 <body>
+<h1>Домашнее задание №1</h1>
+<h2>1) Задать температуру в градусах по Цельсию. Вывести в alert соответствующую температуру в градусах по Фаренгейту. Подсказка: расчёт идёт по формуле: Tf = (9 / 5) * Tc + 32, где Tf – температура по Фаренгейту, Tc – температура по Цельсию</h2>
 <script>
-    document.write("qwdqwdqwd");
+    var celsiusTemp = 26;
+    var fahrenheitTempTf = 0;
+    fahrenheitTemp = (9/5)*celsiusTemp+32;
+    alert(fahrenheitTemp.toFixed(2));
 </script>
+<h2>3) Объявить две переменные: admin и name. Записать в name строку "Василий"; Скопировать значение из name в admin. Вывести admin (должно вывести «Василий»).</h2>
+<script>
+    var admin;
+    var name="Василий";
+    admin = name;
+    document.write(admin);
+</script>
+
+<h2>4) Чему будет равно JS-выражение 1000 + "108";</h2>
+<p>Если одно из слагаемых является строкой, то второе преобразуется также в строку</p>
+<script>
+    document.write(1000 + "108");
+</script>
+<h2>
+    5) * Самостоятельно разобраться с атрибутами тега script (async и defer)
+</h2>
+
+Скрипт выполняется по принципу "Какой раньше подгрузился, такой и выполняется"
+<script src="jscript/javascript-lesson-01-01.js" async></script>
+<script src="jscript/javascript-lesson-01-02.js" async></script>
+
+
+Скрипт выполняется по принципу порядка, один за другим
+<script src="jscript/javascript-lesson-01-01.js" defer></script>
+<script src="jscript/javascript-lesson-01-02.js" defer></script>
+
 </body>
 </html>
