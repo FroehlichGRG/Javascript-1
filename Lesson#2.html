@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Домашнее задание №2</title>
+</head>
+<body>
+<style>
+    h2
+    {
+        font-family: "Courier New";
+        font-size: 16px;
+    }
+
+    body
+    {
+        font-family: "Courier New";
+        font-size: 14px;
+    }
+</style>
+
+<h2>1. Почему код даёт именно такие результаты?</h2>
+
+<script>
+
+    var a = 1, b = 1, c, d;
+    c = ++a; alert(c); // 2 - Префиксно увеличение на 1, c = a + 1. Новый результат получается при выполнении этой операции.
+    d = b++; alert(d); // 1 - Это постфиксная форма. Она также используется для увеличения. Однако сразу после выполнении такой операции выводится значение, которое было до увеличения.
+    c = (2+ ++a); alert(c); // 5 - Было 2, прибавили 2 и префиксно увеличили на 1.
+    d = (2+ b++); alert(d); // 4 - После предыдущей операции было 2, прибавили 2 и постфиксно увеличили на 1 поэтому после выполнения этой операции отображается 4.
+    alert(a); // 3 - В последнем выражении переменная a была префиксно увеличено на 1 и равно 3. Значит сейчас будет выведено 3.
+    alert(b); // 3 - В последнем выражении переменная b была равна 2 и постфиксно увеличена на 1. Значит сейчас будет выведено 3.
+    // Обе формы записи изменяют переменную на 1 (++ --). Основное отличие префиксной и постфиксной формы записи заключается в порядке отображения результата изменения в том же выражении.
+    // В случае с префиксной записью отображается изменненное на 1 значение, а в постфиксной предыдущее, еще не измененное значение.
+    // В последующем будет использовано уже измененное значение.
+</script>
+
+// <h2>2. Чему будет равен x в примере ниже?</h2>
+
+<script>
+    var a = 2;
+    var x = 1 + (a *= 2); // a *= 2 - эта запись аналогична a = a * 2 и в данном случае = 4 + 1 = 5
+    console.log(x);
+</script>
+
+<h2>3. Объявить две целочисленные переменные a и b и задать им произвольные начальные значения. Затем написать скрипт, который работает по следующему принципу:</h2>
+<ul>
+    <li>если a и b положительные, вывести их разность;</li>
+    <li>если а и b отрицательные, вывести их произведение;</li>
+    <li>если а и b разных знаков, вывести их сумму;</li>
+</ul>
+<p>ноль можно считать положительным числом.</p>
+
+<script>
+    var a=Math.floor(Math.random()*199) - 99;
+    var b=Math.floor(Math.random()*199) - 99;
+
+    document.write("Переменная а: "+a+"<br />");
+    document.write("Переменная b: "+b+"<br />");
+    if (a >= 0  && b >= 0) {
+        document.write("Так как переменные a и b положительные выводим их разность: " + (a - b));
+    }
+    else if (a < 0  && b < 0) {
+        document.write("Так как переменные a и b отрицательные выводим произведение: " + (a * b));
+    }
+    else if ((a < 0 && b >= 0) || (a >= 0 && b < 0))
+    {
+        document.write("Так как переменные a и b разных знаков выводим сумму: " + (a + b));
+    }
+</script>
+
+<h2>4) Присвоить переменной а значение в промежутке [0..15]. С помощью оператора switch организовать вывод чисел от a до 15.</h2>
+<script>
+    var a = Math.floor(Math.random()*15);
+    var i = 0;
+
+    document.write("Переменная a равна: " + a + "<br />");
+
+    switch(a) {
+        case 0: i++; document.write(0 + ", "); i++;
+        case 1: i++; document.write(1 + ", "); i++;
+        case 2: i++; document.write(2 + ", "); i++;
+        case 3: i++; document.write(3 + ", "); i++;
+        case 4: i++; document.write(4 + ", "); i++;
+        case 5: i++; document.write(5 + ", "); i++;
+        case 6: i++; document.write(6 + ", "); i++;
+        case 7: i++; document.write(7 + ", "); i++;
+        case 8: i++; document.write(8 + ", "); i++;
+        case 9: i++; document.write(9 + ", "); i++;
+        case 10: i++; document.write(10 + ", "); i++;
+        case 11: i++; document.write(11 + ", "); i++;
+        case 12: i++; document.write(12 + ", "); i++;
+        case 13: i++; document.write(13 + ", "); i++;
+        case 14: i++; document.write(14 + ", "); i++;
+        case 15: i++; document.write(15 + ""); i++;
+    }
+</script>
+
+<h2>5) Реализовать основные 4 арифметические операции в виде функций с двумя параметрами. Обязательно использовать оператор return.</h2>
+<script>
+    var a = Math.floor(Math.random()*10);
+    var b = Math.floor(Math.random()*10);
+
+    function summOfVariables(a,b) {
+        return a + b;
+    }
+
+    function subtractionOfVariables(a,b) {
+        return a - b;
+    }
+
+    function divisionOfVariables(a,b) {
+        return a / b;
+    }
+
+    function multiplicationOfVariables(a,b) {
+        return a * b;
+    }
+
+    document.write("В результате сложения двух чисел a:" + a +" и b:" + b + " получается: " + summOfVariables(a,b) + "<br />");
+
+    document.write("В результате вычитания двух чисел a:" + a +" и b:" + b + " получается: " + subtractionOfVariables(a,b) + "<br />");
+
+    if ( b == 0 )
+    {
+        document.write("Делить на 0 нельзя<br />");
+    }
+
+    else if ( b > 0 )
+    {
+        document.write("В результате деления двух чисел a:" + a +" и b:" + b + " получается: " + divisionOfVariables(a,b) + "<br />");
+    }
+
+    document.write("В результате умножения двух чисел a:" + a +" и b:" + b + " получается: " + multiplicationOfVariables(a,b));
+</script>
+
+<h2>6) Реализовать функцию с тремя параметрами: function mathOperation(arg1, arg2, operation), где arg1, arg2 – значения аргументов, operation – строка с названием операции. В зависимости от переданного значения операции выполнить одну из арифметических операций (использовать функции из пункта 3) и вернуть полученное значение (использовать switch).</h2>
+
+<script>
+    var arg1=Math.floor(Math.random()*199) - 99;
+    var arg2=Math.floor(Math.random()*199) - 99;
+
+    function mathOperation(arg1, arg2, operation)
+    {
+        switch(operation) {
+            case 'subtraction':
+                arg1 - arg2;
+                document.write("Так как переменные arg1 и arg2 положительные выводим их разность: " + (arg1 - arg2));
+                return;
+                break;
+            case 'multiplication':
+                arg1 * arg2;
+                document.write("Так как переменные arg1 и arg2 отрицательные выводим произведение: " + (arg1 * arg2));
+                return;
+                break;
+            case 'summing':
+                arg1 + arg2;
+                document.write("Так как переменные arg1 и arg2 разных знаков выводим сумму: " + (arg1 + arg2));
+                return;
+        }
+    }
+
+    document.write("Переменная arg1: "+arg1+"<br />");
+    document.write("Переменная arg2: "+arg2+"<br />");
+
+    if (arg1 >= 0 && arg2 >= 0)
+    {
+        mathOperation(arg1, arg2, "subtraction");
+    }
+    else if (arg1 < 0 && arg2 < 0)
+    {
+        mathOperation(arg1, arg2, "multiplication");
+    }
+    else if ((arg1 < 0 && arg2 >= 0) || (arg1 >= 0 && arg2 < 0))
+    {
+        mathOperation(arg1, arg2, "summing");
+    }
+
+</script>
+
+<h2>7) * Сравнить null и 0. Попробуйте объяснить результат.</h2>
+<script>
+    console.log(null > 0); // return false
+    console.log(null < 0); // return false
+    console.log(null == 0); // return false
+    console.log(null >= 0); // return true
+    console.log(null <= 0); // return true
+
+    // В случае с операциями сравнения ">=" и "<=" происходит приведение "null" к числу 0. Поэтому возвращается значение true.
+
+</script>
+<h2>8) * С помощью рекурсии организовать функцию возведения числа в степень. Формат: function power(val, pow), где val – заданное число, pow – степень.</h2>
+<script>
+
+    var val = Math.floor(Math.random()*10);
+    var pow = Math.floor(Math.random()*10);
+
+    function power(val, pow)
+    {
+        if (pow != 1 )
+        {
+            return val * power(val, pow - 1);
+        }
+
+        else {
+            return val;
+        }
+    }
+
+    document.write("Значение заданного числа val: " + val + "<br />" );
+    document.write("Значение заданного числа pow: " + pow + "<br />" );
+    document.write("В результате " + val+"<sup>" + pow + "</sup> = " + power(val,pow));
+</script>
+
+<h2>Пример копирования 2 переменных (не для ДЗ, просто, чтобы запомнить).</h2>
+<script>
+    var x = 10;
+    var y = 20;
+
+    document.write("Переменна X:" + x + " Переменная Y: " + y + "<br />");
+
+    x = x + y;
+    y = x - y;
+    x = x - y;
+
+    document.write("Переменна X:" + x + " Переменная Y: " + y);
+</script>
+
+</body>
+</html>
