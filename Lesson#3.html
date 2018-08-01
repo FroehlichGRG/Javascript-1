@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    h2
+    {
+        font-family: "Courier New";
+        font-size: 16px;
+    }
+
+    body
+    {
+        font-family: "Courier New";
+        font-size: 14px;
+    }
+</style>
+
+
+<h2>1.1 С помощью цикла for вывести все простые числа в промежутке от 0 до 100 (эксперимент)</h2>
+<script>
+    var PrimeNumber = [];
+    var arrayCounter = 0;
+    for (var i=2;  i<=100; i++)
+    {
+        var count = 0;
+        for (var j=2; j<=i; j++) {
+            if (i%j) {
+                continue;
+            }
+            count += 1;
+        }
+        if (count == 1)
+        {
+            PrimeNumber[arrayCounter] = i; ++arrayCounter;
+        }
+    }
+    for(i=0; i<PrimeNumber.length; i++)
+    {
+        if (i <  PrimeNumber.length-1) {
+            document.write(PrimeNumber[i] + ", ");
+        }
+        else {
+            document.write(PrimeNumber[i]);
+        }
+    }
+</script>
+
+<h2>1.2 С помощью цикла while вывести все простые числа в промежутке от 0 до 100</h2>
+<script>
+
+    var numbers = 0;
+    var i = 2;
+    var count = 0;
+    var arraynum = 0;
+
+    while (numbers <= 100)
+    {
+        count = 0;
+        i=2;
+        while (i <= numbers/2)
+        {
+            if (numbers%i == 0)
+            {
+                count++;
+                break;
+            }
+            i++;
+        }
+        if (count == 0 && numbers !=1)
+        {
+            PrimeNumber[arraynum] = numbers;
+            arraynum++;
+        }
+        numbers++;
+    }
+
+    arraynum = 1;
+
+    while (arraynum <= PrimeNumber.length-1)
+    {
+        if (arraynum <  PrimeNumber.length-1) {
+            document.write(PrimeNumber[arraynum] + ", ");
+        }
+        else {
+            document.write(PrimeNumber[arraynum]);
+        }
+        arraynum++;
+    }
+
+</script>
+
+
+<h2>2) С помощью цикла do…while написать функцию для вывода чисел от 0 до 10, чтобы результат выглядел так:</h2>
+<ul>
+    <li>0 – это ноль</li>
+    <li>1 – нечетное число</li>
+    <li>2 – четное число</li>
+    <li>3 – нечетное число</li>
+    <li>…</li>
+    <li>10 – четное число</li>
+</ul>
+
+<script>
+    function evenNonEvenf(fromnumber, tonumber) {
+        var i=fromnumber;
+
+        do {
+
+            if (i==0) document.write(i + " - это ноль" + "<br />");
+            else if (i%2 == 0) {document.write(i + " - это четное число" + "<br />");}
+            else{ document.write(i + " - это нечетное число" + "<br />");}
+            i += 1;
+        }
+        while (i<tonumber+1)
+    }
+
+    evenNonEvenf(0,10);
+</script>
+
+
+<h2>2. Начиная с этого урока, мы начинаем работать с функционалом интернет-магазина.
+Предположим, что у нас есть сущность корзины. Нужно реализовать функционал подсчета
+стоимости корзины в зависимости от находящихся в ней товаров. Товары в корзине хранятся в
+    массиве.</h2>
+<ul>
+    <li>2.1. Организуйте такой массив для хранения товаров в корзине</li>
+    <li>2.2. Организуйте функцию countBasketPrice, которая будет считать стоимость корзины.</li>
+</ul>
+
+
+
+<h2>3. *Вывести с помощью цикла for числа от 0 до 9, НЕ используя тело цикла. То есть выглядеть должно вот так:</h2>
+<p>for(…){// здесь пусто}</p>
+
+
+
+
+
+<h2>4.* Нарисовать пирамиду с помощью console.log, как показано на рисунке, только у вашей пирамиды должно быть 20 рядов, а не 5:</h2>
+x<br />
+xx<br />
+xxx<br />
+xxxx<br />
+xxxxx<br />
+
+<script>
+    var symbl = "x";
+    var i = 0;
+    var j = 0;
+        for (i; i<20; i++)
+    {
+        for (j; j<i; j++)
+        {
+            symbl+="x";
+        }
+        console.log(symbl);
+    }
+
+</script>
+
+
+</body>
+</html>
