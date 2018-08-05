@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+
+    var MillionairArrObjects = [];
+
+    MillionairArrObjects[0] = {
+        id: "1",
+        question: "Как правильно закончить пословицу: «Не откладывай на завтра то, что можно…»?",
+        answer1: "a) сделать сегодня",
+        answer2: "b) сделать послезавтра",
+        answer3: "c) сделать через месяц",
+        answer4: "d) никогда не делать",
+        correctanswer: "a",
+        questionprice: 100
+    };
+    MillionairArrObjects[1] = {
+        id: "2",
+        question: "Что говорит человек, когда замечает нечто необычное?",
+        answer1: "a) попало в лоб",
+        answer2: "b) залетело в рот",
+        answer3: "c) накапало в уши",
+        answer4: "d) бросилось в глаза",
+        correctanswer: "d",
+        questionprice: 200
+    };
+    MillionairArrObjects[2] = {
+        id: "3",
+        question: "Что помогает туристу ориентироваться в незнакомом городе?",
+        answer1: "a) путепровод",
+        answer2: "b) путеукладчик",
+        answer3: "c) путеводитель",
+        answer4: "d) путеводная звезда",
+        correctanswer: "c",
+        questionprice: 300
+    };
+    MillionairArrObjects[3] = {
+        id: "4",
+        question: "Как звали старшую сестру императора Петра Первого?",
+        answer1: "a) Вера",
+        answer2: "b) Надежда",
+        answer3: "c) Любовь",
+        answer4: "d) Софья",
+        correctanswer: "d",
+        questionprice: 400
+    };
+
+    MillionairArrObjects[4] = {
+        id: "5",
+        question: "Куда впадает река Уссури?",
+        answer1: "a) Охотское море",
+        answer2: "b) Амур",
+        answer3: "c) Байкал",
+        answer4: "d) Японское море",
+        correctanswer: "b",
+        questionprice: 1000
+    };
+
+    var min = 0;
+    var max = MillionairArrObjects.length;
+    var shuffleCount = [];
+
+    for(var i = 0; i<max; i++)
+    {
+        var tempCounter = Math.floor(Math.floor(Math.random() * (max - min) + min));
+        if (i == 0) {
+            shuffleCount[0] = tempCounter;
+        }
+        else {
+            while (shuffleCount.indexOf(tempCounter) != -1){
+                tempCounter = Math.floor(Math.floor(Math.random() * (max - min) + min));
+            }
+            shuffleCount[i] = tempCounter;
+        }
+    }
+
+    var userAccnt = 0;
+    var shuffle;
+    var quantityRightAnswers=0;
+
+    for (i = 0; i < max; i++)
+    {
+
+        shuffle = shuffleCount[i];
+
+        userAnswer = prompt(MillionairArrObjects[shuffle].id + " вопрос. Его цена: " + MillionairArrObjects[shuffle].questionprice + ". На вашем счету: $" + userAccnt +"\n" + MillionairArrObjects[shuffle].question + "\n" +  "\n" + "Варианты ответов: " + "\n" + MillionairArrObjects[shuffle].answer1 + "\n" + MillionairArrObjects[shuffle].answer2 + "\n" + MillionairArrObjects[shuffle].answer3 + "\n" + MillionairArrObjects[shuffle].answer4, '');
+
+        if (userAnswer == MillionairArrObjects[shuffle].correctanswer)  {
+            console.log("Вопрос №" + MillionairArrObjects[shuffle].id + ". " + MillionairArrObjects[shuffle].question);
+            console.log("Вы совершенно правы!");
+            quantityRightAnswers ++;
+            userAccnt = userAccnt + MillionairArrObjects[shuffle].questionprice;
+        }
+
+        else {
+            console.log("Вы проиграли попробуйте заново!");
+            userAccnt = 0;
+            console.log("На вашем счету: $" + userAccnt);
+            break;
+        }
+    }
+
+    if (quantityRightAnswers === max)
+    {
+        console.log("Вы победили! На вашем счету: $" + userAccnt);
+    }
+</script>
+
+</body>
+</html>

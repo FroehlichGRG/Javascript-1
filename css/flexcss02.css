@@ -1,0 +1,99 @@
+html,
+body
+{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.flexWrapper
+{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+
+.flexContainer01, .flexContainer02, .flexContainer03
+ {
+     display: flex;
+     width: 100%;
+     height: 100%;
+     flex-direction: column;
+     align-items: stretch;
+     flex-wrap: wrap;
+ }
+
+.containter01,.containter02,.containter03,.containter04,.containter05,.containter06,.containter07
+{
+    position: relative;
+    width: 100%;
+}
+
+.containter01
+{
+    background-color: aquamarine;
+    height: 75%;
+}
+.containter02
+{
+    height: 25%;
+    background-color: #ff000d;
+}
+.containter03
+{
+    height: 50%;
+    background-color: #79ff00;
+}
+.containter04
+{
+    height: 50%;
+    background-color: #00a3ff;
+}
+
+.containter05
+{
+    background-color: #e1ff77;
+    height: 33%;
+}
+.containter06
+{
+    background-color: #ff6162;
+    height: 33%;
+}
+.containter07
+{
+    background-color: #c4ff9a;
+    height: 34%;
+}
+
+@media screen and (max-width:600px)
+{
+    .flexWrapper
+    {
+        width: 100%;
+        height: 100%;
+        display: block;
+    }
+}
+
+@media screen and (max-width:600px)
+{
+    .flexContainer01, .flexContainer02, .flexContainer03
+    {
+        width: 600px;
+        display: block;
+        height: 500px;
+    }
+}
+
+@media screen and (max-width:600px)
+{
+    .containter01, .containter02, .containter03, .containter04, .containter05, .containter06, .containter07
+    {
+        width: 100%;
+        height: 250px;
+        display: block;
+    }
+}

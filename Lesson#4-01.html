@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Домашнее задание №4</title>
+</head>
+<body>
+
+<script>
+    var max = 999;
+    var numberInput = prompt("Введите число от 1 до " + max + ": ", 289);
+    if (numberInput > 999)
+        {
+            alert("Вы указали число больше " + max + "!"); console.log("Число " + numberInput + " больше чем " + max + ", которое вас просили ввести. Попробуйте еще раз !");
+        }
+
+        else
+    {
+        var splitDigitsobj = {};
+
+        function splitDigits(numberInput)
+        {
+            var a = Math.floor(numberInput / 100 );
+            var b = Math.floor(numberInput / 10 % 10);
+            var c = Math.floor(numberInput / 1 % 10);
+
+            splitDigitsobj.unit = a;
+            splitDigitsobj.dozens = b;
+            splitDigitsobj.hundreds = c;
+
+            return splitDigitsobj;
+        }
+
+        splitDigits(numberInput);
+
+        console.log(splitDigitsobj.unit);
+        console.log(splitDigitsobj.dozens);
+        console.log(splitDigitsobj.hundreds);
+        console.log(splitDigitsobj);
+    }
+
+
+
+</script>
+
+
+
+</body>
+</html>
