@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<style>
+    .red {
+        color: red;
+        text-decoration: underline;
+    }
+</style>
+<body>
+
+<div id="block">
+    <h1 id="header">My Header</h1>
+</div>
+
+
+<h1 id="header">Заголовок</h1>
+<p class="article">Первый заголовок</p>
+<p class="article">Второй заголовок</p>
+<p class="article">Второй заголовок</p>
+<div>
+    Блок кода
+    <div id="inner">Вложенный элемент</div>
+</div>
+
+<ul id="list">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+</ul>
+
+
+<script>
+    // var h = document.getElementById("header");
+    // h.innerText = "New header";
+    // var x = document.getElementsByClassName("example");
+    // document.getElementById("block").innerHTML = "<h3>Content page</h3>";
+    // console.log(h.innerText);
+
+    var list = document.getElementById("list");
+    var newItem = document.createElement("li");
+    newItem.innerText = "Созданный текст";
+    list.insertBefore(newItem, list.children[4]);
+
+
+    for(var i=0; i<document.body.childNodes.length; i++)
+    {
+        console.log(document.body.childNodes[i]);
+    }
+
+    var header = document.getElementById("header");
+    header.style.color="#FF0000";
+    header.style.fontSize="2em";
+    header.style.fontFamily="Arial";
+
+    header.className = 'red';
+
+    var articles = document.getElementsByClassName("article");
+
+    for(var i=0,size=20;i<articles.length; i++, size+=5)
+    {
+        articles[i].style.color="red";
+        articles[i].style.fontWeight="bolder";
+        articles[i].style.fontSize=size+'px';
+    }
+
+    var text = document.createTextNode("Новый элемент");
+    document.body.appendChild(text);
+
+    var link = document.createElement("a");
+    link.innerText = "Ссылка";
+    link.href="http://ya.ru";
+
+    document.getElementById("inner").appendChild(link);
+
+
+</script>
+</body>
+</html>

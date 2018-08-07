@@ -3,8 +3,228 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        html,body {
+            height:100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .row
+        {
+            display: table;
+        }
+
+        .cellItem
+        {
+            text-align: center;
+            vertical-align: middle;
+            display: table-cell;
+            width: 70px;
+            height: 70px;
+            border:1px solid #996666;
+            background-color: #fff;
+            float: left;
+        }
+
+        p.figure
+        {
+            margin: 0;
+            font-size: 40px;
+            padding-top: 5px;
+            font-family: Helvetica;
+        }
+
+        .blackcl
+        {
+            background-color: #663333;
+        }
+
+        .lettrs
+        {
+            display: table-cell;
+            width: 70px;
+            height: 40px;
+            float: left;
+            text-align: center;
+            border:1px solid #663333;
+            padding: 25px 0 5px 0;
+            background-color: #663333;
+            font-family: Arial;
+            font-size: 16px;
+            color: aliceblue;
+        }
+
+        .nummers
+        {
+            padding: 0 5px 0 5px;
+            display: table-cell;
+            width: 70px;
+            height: 70px;
+            vertical-align: middle;
+            border:1px solid #663333;
+            background-color: #663333;
+            font-family: Arial;
+            font-size: 16px;
+            text-align: center;
+            color: aliceblue;
+        }
+
+        .reverse
+        {
+            transform: rotate(180deg);
+        }
+
+        .firstlett
+        {
+            color: #663333;
+        }
+
+        .outer
+        {
+            content: '';
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+        }
+
+        .inner
+        {
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+    </style>
 </head>
 <body>
+<div class="outer">
+    <div class="inner">
+        <div class="row">
+            <div class="nummers firstlett">0</div>
+            <div class="lettrs reverse">A</div>
+            <div class="lettrs reverse">B</div>
+            <div class="lettrs reverse">C</div>
+            <div class="lettrs reverse">D</div>
+            <div class="lettrs reverse">E</div>
+            <div class="lettrs reverse">F</div>
+            <div class="lettrs reverse">G</div>
+            <div class="lettrs reverse">H</div>
+            <div class="nummers firstlett">0</div>
+        </div>
+        <div class="row">
+            <div class="nummers">8</div>
+            <div class="cellItem"><p class="figure">&#9820;</p></div>
+            <div class="cellItem blackcl"><p class="figure">&#9822;</p></div>
+            <div class="cellItem"><p class="figure">&#9821;</p></div>
+            <div class="cellItem blackcl"><p class="figure">&#9819;</p></div>
+            <div class="cellItem"><p class="figure">&#9818;</p></div>
+            <div class="cellItem blackcl"><p class="figure">&#9821;</p></div>
+            <div class="cellItem"><p class="figure">&#9822;</p></div>
+            <div class="cellItem blackcl"><p class="figure">&#9820;</p></div>
+            <div class="nummers reverse">8</div>
+        </div>
+        <div class="row">
+            <div class="nummers">7</div>
+            <div class="cellItem blackcl"><p class="figure">&#x265f;</p></div>
+            <div class="cellItem"><p class="figure">&#x265f;</p></div>
+            <div class="cellItem blackcl"><p class="figure">&#x265f;</p></div>
+            <div class="cellItem"><p class="figure">&#x265f;</p></div>
+            <div class="cellItem blackcl"><p class="figure">&#x265f;</p></div>
+            <div class="cellItem"><p class="figure">&#x265f;</p></div>
+            <div class="cellItem blackcl"><p class="figure">&#x265f;</p></div>
+            <div class="cellItem"><p class="figure">&#x265f;</p></div>
+            <div class="nummers reverse">7</div>
+        </div>
+        <div class="row">
+            <div class="nummers">6</div>
+            <div class="cellItem"></div>
+            <div class="cellItem blackcl"></div>
+            <div class="cellItem"></div>
+            <div class="cellItem blackcl"></div>
+            <div class="cellItem"></div>
+            <div class="cellItem blackcl"></div>
+            <div class="cellItem"></div>
+            <div class="cellItem blackcl"></div>
+            <div class="nummers reverse">6</div>
+        </div>
+        <div class="row">
+            <div class="nummers">5</div>
+            <div class="cellItem blackcl"></div>
+            <div class="cellItem"></div>
+            <div class="cellItem blackcl"></div>
+            <div class="cellItem"></div>
+            <div class="cellItem blackcl"></div>
+            <div class="cellItem"></div>
+            <div class="cellItem blackcl"></div>
+            <div class="cellItem"></div>
+            <div class="nummers reverse">5</div>
+        </div>
+        <div class="row">
+            <div class="nummers">4</div>
+            <div class="cellItem"></div>
+            <div class="cellItem blackcl"></div>
+            <div class="cellItem"></div>
+            <div class="cellItem blackcl"></div>
+            <div class="cellItem"></div>
+            <div class="cellItem blackcl"></div>
+            <div class="cellItem"></div>
+            <div class="cellItem blackcl"></div>
+            <div class="nummers reverse">4</div>
+        </div>
+        <div class="row">
+            <div class="nummers">3</div>
+            <div class="cellItem blackcl"></div>
+            <div class="cellItem"></div>
+            <div class="cellItem blackcl"></div>
+            <div class="cellItem"></div>
+            <div class="cellItem blackcl"></div>
+            <div class="cellItem"></div>
+            <div class="cellItem blackcl"></div>
+            <div class="cellItem"></div>
+            <div class="nummers reverse">3</div>
+        </div>
+        <div class="row">
+            <div class="nummers">2</div>
+            <div class="cellItem"><p class="figure">&#9817;</p></div>
+            <div class="cellItem blackcl"><p class="figure">&#9817;</p></div>
+            <div class="cellItem"><p class="figure">&#9817;</p></div>
+            <div class="cellItem blackcl"><p class="figure">&#9817;</p></div>
+            <div class="cellItem"><p class="figure">&#9817;</p></div>
+            <div class="cellItem blackcl"><p class="figure">&#9817;</p></div>
+            <div class="cellItem"><p class="figure">&#9817;</p></div>
+            <div class="cellItem blackcl"><p class="figure">&#9817;</p></div>
+            <div class="nummers reverse">2</div>
+        </div>
+        <div class="row">
+            <div class="nummers">1</div>
+            <div class="cellItem blackcl"><p class="figure">&#9814;</p></div>
+            <div class="cellItem"><p class="figure">&#9816;</p></div>
+            <div class="cellItem blackcl"><p class="figure">&#9815;</p></div>
+            <div class="cellItem"><p class="figure">&#9813;</p></div>
+            <div class="cellItem blackcl"><p class="figure">&#9812;</p></div>
+            <div class="cellItem"><p class="figure">&#9815;</p></div>
+            <div class="cellItem blackcl"><p class="figure">&#9816;</p></div>
+            <div class="cellItem"><p class="figure">&#9814;</p></div>
+            <div class="nummers reverse">1</div>
+        </div>
+        <div class="row">
+            <div class="nummers firstlett">0</div>
+            <div class="lettrs">A</div>
+            <div class="lettrs">B</div>
+            <div class="lettrs">C</div>
+            <div class="lettrs">D</div>
+            <div class="lettrs">E</div>
+            <div class="lettrs">F</div>
+            <div class="lettrs">G</div>
+            <div class="lettrs">H</div>
+            <div class="nummers firstlett">0</div>
+        </div>
+    </div>
+</div>
+
+
+
 
 </body>
 </html>
