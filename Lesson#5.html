@@ -9,6 +9,8 @@
 
 <script>
 
+    // Внешние оболочки для Div-ов
+
     var outerdiv = document.createElement("div");
     outerdiv.id = "outer";
     document.body.appendChild(outerdiv);
@@ -19,7 +21,7 @@
 
     var element;
 
-    for (var k=0; k<10; k++)
+    for (var k = 0; k < 10; k ++)
     {
         var a = document.createElement("div");
         a.className="row";
@@ -29,23 +31,30 @@
     var letters = [" ", "A", "B", "C", "D", "E", "F", "G", "H", " "];
     var numbrs = [" ", "8", "7", "6", "5", "4", "3", "2", "1", " "];
 
+
+    // var firstLinefigureWhtBuk = ["П", "П", "П", "П", "П", "П", "П", "П",];
+    // var secondLinefigureWhtBuk = ["Л", "К", "Сч", "Ф", "К", "Сб", "К", "Л",];
+    // var firstLinefigureBlkBuk = ["П", "П", "П", "П", "П", "П", "П", "П",];
+    // var secondLinefigureBlkBuk = ["Л", "К", "Сч", "Ф", "К", "Сб", "К", "Л",];
+
     var firstLinefigureWht = ["&#9823;", "&#9823;", "&#9823;", "&#9823;", "&#9823;", "&#9823;", "&#9823;", "&#9823;"];
     var firstLinefigureBlk = ["&#9817;", "&#9817;", "&#9817;", "&#9817;", "&#9817;", "&#9817;", "&#9817;", "&#9817;"];
 
     var secondLinefigureWht = ["&#9814;", "&#9816;", "&#9815;", "&#9813;", "&#9812;", "&#9815;", "&#9816;", "&#9814;"];
     var secondLinefigureBlk = ["&#9820;", "&#9822;", "&#9821;", "&#9819;", "&#9818;", "&#9821;", "&#9822;", "&#9820;"];
 
+    function chessBoard() {
 
+    // Доска из 10x10 блоков (8x8 под шахматы, и по 2 поля для вертикалей и горизонталей адресов с каждой стороны
 
-    var n = 0;
-    for (var i=0; i<10; i++)
+    for (var i = 0; i < 10; i ++)
     {
-        for (k=0; k<10; k++)
+        for (k = 0; k < 10; k ++)
         {
             var innrdv = document.createElement("div");
 
 
-            if ((i%2!=0 && k%2==0)||(i%2==0 && k%2!=0))
+            if ((i%2 !== 0 && k%2 === 0)||(i%2 === 0 && k%2 !== 0))
             {
                 innrdv=document.createElement("div");
                 document.body.appendChild(innrdv);
@@ -63,21 +72,22 @@
             element.appendChild(innrdv);
         }
     }
+
     var j;
 
-    for (j = 0; j < 10; j++)
+    for (j = 0; j < 10; j ++)
     {
-        for(i=0; i <10; i++)
+        for(i = 0; i < 10; i ++)
         {
             rowelement = document.getElementsByClassName("row")[j];
 
-            if (j == 0 || j == 9)
+            if (j === 0 || j === 9)
             {
                 element = rowelement.childNodes[i];
                 var list = element.getElementsByTagName("div");
                 element.classList.remove("cellItem");
                 element.classList.remove("blackcl");
-                if (j == 0)
+                if (j === 0)
                 {
                     element.classList.add("reverse");
                 }
@@ -87,77 +97,81 @@
         }
     }
 
-    var list;
+    }
 
-    for(j = 0; j < 10; j++) {
+    chessBoard();
+
+    // Размещение цифр на доске
+
+    for(j = 0; j < 10; j ++) {
 
         for (i = 0; i < 10; i++) {
             columnelement = document.getElementsByClassName("row")[i];
 
-            if (j == 0 || j == 9)
+            if (j === 0 || j === 9)
             {
-
-                celement = columnelement.childNodes[j];
+                cElement = columnelement.childNodes[j];
                 list = element.getElementsByTagName("div");
-                celement.classList.remove("cellItem");
-                celement.classList.remove("blackcl");
-
-                if (j == 9)
+                cElement.classList.remove("cellItem");
+                cElement.classList.remove("blackcl");
+                if (j === 9)
                 {
-                    celement.classList.add("reverse");
+                    cElement.classList.add("reverse");
                 }
-                celement.classList.add("lettrs");
-                celement.innerText = numbrs[i];
+                cElement.classList.add("lettrs");
+                cElement.innerText = numbrs[i];
             }
         }
     }
 
+    // Размещение пешек на доске
 
-    for (j = 0; j < 10; j++)
+    for (j = 0; j < 10; j ++)
     {
-        for(i=1; i <9; i++)
+        for(i = 1; i < 9; i ++)
         {
-            rowelement = document.getElementsByClassName("row")[j];
+            rowElement = document.getElementsByClassName("row")[j];
 
-            if (j == 2 || j == 7)
+            if (j === 2 || j === 7)
             {
-                element = rowelement.childNodes[i];
-                var list = element.getElementsByTagName("div");
-                if (j == 2)
+                element = rowElement.childNodes[i];
+                list = element.getElementsByTagName("div");
+                if (j === 2)
                 {
                     element.innerHTML="<p class='figure'>" + firstLinefigureWht[i-1] +"</p>";
                 }
-                else if (j==7)
+                else if (j === 7)
                 {
                     element.innerHTML="<p class='figure'>" + firstLinefigureBlk[i-1] +"</p>";
                 }
             }
         }
     }
-    for (j = 0; j < 10; j++)
-    {
-        for(i=1; i <9; i++)
-        {
-            rowelement = document.getElementsByClassName("row")[j];
 
-            if (j == 1 || j == 8)
+    // Размещение фигур на доске
+    for (j = 0; j < 10; j ++)
+    {
+        for(i = 1; i < 9; i ++)
+        {
+            rowElement = document.getElementsByClassName("row")[j];
+            if (j === 1 || j === 8)
             {
-                element = rowelement.childNodes[i];
-                var list = element.getElementsByTagName("div");
-                if (j == 1) {
+                element = rowElement.childNodes[i];
+                list = element.getElementsByTagName("div");
+                if (j === 1) {
                     element.innerHTML = "<p class='figure'>" + secondLinefigureBlk[i - 1] + "</p>";
                 }
-                else if (j==8) {
+                else if (j === 8) {
                     element.innerHTML = "<p class='figure'>" + secondLinefigureWht[i - 1] + "</p>";
                 }
-
             }
         }
     }
 
-    for (j=7; j<=8; j++)
+    // Добавление дополнительного класса к белым фигурам
+    for (j = 7; j <= 8; j ++)
     {
-        for (i=0; i<8; i++)
+        for (i = 0; i < 8; i ++)
         {
             rowelement = document.getElementsByClassName("row")[j];
             var div1 = rowelement.getElementsByClassName("figure")[i];
@@ -166,6 +180,5 @@
     }
 
 </script>
-
 </body>
 </html>
