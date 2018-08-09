@@ -1,0 +1,93 @@
+html, body {
+    height:100%;
+    margin: 0;
+    padding: 0;
+}
+
+.row
+{
+    display: table;
+}
+
+.cellItem
+{
+    text-align: center;
+    vertical-align: middle;
+    display: table-cell;
+    width: 55px;
+    height: 55px;
+    border:1px solid #CCCCCC;
+    background-color: #fff;
+    float: left;
+}
+
+p.figure
+{
+    margin: 0;
+    font-size: 40px;
+    padding-top: 0;
+    font-family: Helvetica;
+    font-weight: bold;
+    color: #333333;
+    /* text-shadow: 2px 2px 2px #c0c0c0, 2px 2px 15px #663300; */
+}
+
+.blackcl
+{
+    background-color: #999999;
+}
+
+.lettrs
+{
+    display: table-cell;
+    width: 55px;
+    height: 30px;
+    float: left;
+    text-align: center;
+    border:1px solid transparent;
+    padding: 15px 0 10px 0;
+    background-color: #999999;
+    font-family: Arial;
+    color: #c5c5c5;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.nummers
+{
+    padding: 0;
+    display: table-cell;
+    width: 55px;
+    height: 55px;
+    vertical-align: middle;
+    border:1px solid transparent;
+    background-color: #999999;
+    font-family: Arial;
+    font-size: 16px;
+    text-align: center;
+    color: #c5c5c5;
+    font-weight: bold;
+}
+
+.reverse
+{
+    transform: rotate(180deg);
+}
+
+.firstlett
+{
+    color: #999999;
+}
+
+#outer
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+p.whit
+{
+    color: #717171;
+}
