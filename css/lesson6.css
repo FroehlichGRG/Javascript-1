@@ -1,0 +1,33 @@
+.thumbnails
+{
+    float: left;
+    display: inline;
+}
+
+#thumbnails-1, #thumbnails-2, #thumbnails-3
+{
+    border: #d6d6d6 1px solid;
+    margin: 50px;
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+}
+
+#thumbnails-1:hover, #thumbnails-2:hover, #thumbnails-3:hover
+{
+    cursor: pointer;
+}
+
+#thumbnailWrapp
+{
+    width: 100%;
+    display: block;
+    padding: 0 calc(29vw);
+}
+
+#content, #fullImage
+{
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+}

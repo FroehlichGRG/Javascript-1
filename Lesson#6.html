@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Домашнее задание №6</title>
+    <link rel="stylesheet" href="css/lesson6.css">
+</head>
+<body>
+
+<script>
+    var outerdiv = document.createElement("div");
+    outerdiv.id = "content";
+    document.body.appendChild(outerdiv);
+
+    var thumbnailWrapp = document.createElement("div");
+    thumbnailWrapp.id = "thumbnailWrapp";
+    outerdiv.appendChild(thumbnailWrapp);
+
+    for (var i=1; i<=3; i++)
+    {
+        var innerDiv = document.createElement("div");
+        innerDiv.className = "thumbnails";
+        thumbnailWrapp.appendChild(innerDiv);
+
+        var thumbimages = document.createElement("img");
+        thumbimages.id = "thumbnails-"+i;
+        thumbimages.src = "Lesson-6-img-t/pic-0"+i+".jpg";
+
+        innerDiv.appendChild(thumbimages);
+        thumbimages.setAttribute("onclick", "fullImageFnction(this)");
+    }
+
+    var FullimageDiv = document.createElement("div");
+    FullimageDiv.id = "fullImage";
+    outerdiv.appendChild(FullimageDiv);
+
+    function fullImageFnction() {
+
+        console.log(event.target.id);
+
+        if (event.target.id === "thumbnails-1" )
+        {
+            thumbNummer=1;
+            var elmnt = document.getElementById("fullImage");
+            elmnt.parentNode.removeChild(elmnt);
+        }
+
+        else if (event.target.id === "thumbnails-2" )
+        {
+            thumbNummer=2;
+            var elmnt = document.getElementById("fullImage");
+            elmnt.parentNode.removeChild(elmnt);
+        }
+
+        else if (event.target.id === "thumbnails-3" )
+        {
+            thumbNummer=3;
+            var elmnt = document.getElementById("fullImage");
+            elmnt.parentNode.removeChild(elmnt);
+        }
+
+        FullimageDiv = document.createElement("div");
+        FullimageDiv.id = "fullImage";
+        outerdiv.appendChild(FullimageDiv);
+
+        fullImage = document.createElement("img");
+        fullImage.src = 'Lesson-6-img/pic-0'+thumbNummer+'.jpg';
+        FullimageDiv.appendChild(fullImage);
+
+
+        console.log(fullImage.src);
+
+        /* if fullImage.src = 'http://lol.ru/ololoshka.png';
+        fullImage.onload = function(){alert('картинка существует')};
+        fullImage.onerror = function(){alert('картинка не существует')}; */
+    }
+
+
+</script>
+
+
+
+
+</body>
+</html>
