@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/lesson6-2.css">
+    <script src="jscript/shopitems.js"></script>
+</head>
+<body>
+
+<script>
+
+    var quantityItems = 0;
+    var summaryCartItems = 0;
+
+    var cartdivwrapper = document.createElement("div");
+    cartdivwrapper.id = "cartdivwrapper";
+    document.body.appendChild(cartdivwrapper);
+
+    var cartdiv = document.createElement("div");
+    cartdiv.id = "cartdiv";
+    cartdivwrapper.appendChild(cartdiv);
+
+    var itemsList = document.createElement("div");
+    itemsList.id = "itemsList";
+    cartdiv.appendChild(itemsList);
+
+    var itemsListnumm = document.createElement("ul");
+    itemsListnumm.id = "itemsListnumm";
+    itemsList.appendChild(itemsListnumm);
+
+    var CartText = document.createElement("p");
+    CartText.innerText = "В вашей корзине " + quantityItems + " товаров.";
+    cartdiv.appendChild(CartText);
+
+    CartText = document.createElement("p");
+    CartText.innerText = "На общую сумму " + summaryCartItems + " рублей.";
+    cartdiv.appendChild(CartText);
+
+    var outerdiv = document.createElement("div");
+    outerdiv.id = "content";
+    document.body.appendChild(outerdiv);
+
+    var thumbnailWrapp = document.createElement("div");
+    thumbnailWrapp.id = "thumbnailWrapp";
+    outerdiv.appendChild(thumbnailWrapp);
+
+    for (var i=0; i<ShopItem.length; i++) {
+        var innerDiv = document.createElement("div");
+        innerDiv.className = "shopitm";
+        innerDiv.id = "shpitm" + i;
+        thumbnailWrapp.appendChild(innerDiv);
+
+        var headrItems = document.createElement("h2");
+        headrItems.innerText = ShopItem[i].name;
+        innerDiv.appendChild(headrItems);
+
+        var thumbimages = document.createElement("img");
+        thumbimages.id = "shopitm-" + i;
+        thumbimages.src = ShopItem[i].urlthumb;
+        innerDiv.appendChild(thumbimages);
+
+        var priceItems = document.createElement("p");
+        priceItems.innerText = "Цена: " + ShopItem[i].price;
+        innerDiv.appendChild(priceItems);
+
+        var inptItems = document.createElement("INPUT");
+        inptItems.setAttribute("type", "button");
+        inptItems.setAttribute("value", "Добавить в корзину");
+        inptItems.setAttribute("onclick", "addItemToCart()");
+        innerDiv.appendChild(inptItems);
+    }
+
+    function addItemToCart() {
+        var cartItemsLst = document.createElement("li");
+        cartItemsLst.innerHTML = 'Добавить товар';
+        itemsListnumm.appendChild(cartItemsLst);
+    }
+
+</script>
+
+</body>
+</html>

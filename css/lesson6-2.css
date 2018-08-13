@@ -1,0 +1,30 @@
+.shopitm
+{
+    text-align: center;
+    float: left;
+    width: 250px;
+    border: 1px solid #e4e4e4;
+    margin: 9px 8px 9px 0px;
+    padding-bottom: 20px;
+}
+
+
+.shopitm > h2, .shopitm > p
+{
+    font-family: Arial;
+}
+
+#cartdiv
+{
+    width: 80%;
+    font-family: Arial;
+    padding: 25px 20px 20px 20px;
+
+}
+
+#cartdivwrapper
+{
+    border: 1px solid #e4e4e4;
+    width: 78%;
+    margin: 0px;
+}

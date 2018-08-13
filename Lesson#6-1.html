@@ -34,31 +34,27 @@
     FullimageDiv.id = "fullImage";
     outerdiv.appendChild(FullimageDiv);
 
-    function fullImageFnction() {
+    var thumbNummer = 0;
 
-        console.log(event.target.id);
+    function fullImageFnction() {
 
         if (event.target.id === "thumbnails-1" )
         {
             thumbNummer=1;
-            var elmnt = document.getElementById("fullImage");
-            elmnt.parentNode.removeChild(elmnt);
         }
 
         else if (event.target.id === "thumbnails-2" )
         {
             thumbNummer=2;
-            var elmnt = document.getElementById("fullImage");
-            elmnt.parentNode.removeChild(elmnt);
         }
 
         else if (event.target.id === "thumbnails-3" )
         {
             thumbNummer=3;
-            var elmnt = document.getElementById("fullImage");
-            elmnt.parentNode.removeChild(elmnt);
         }
 
+        var elmnt = document.getElementById("fullImage");
+        elmnt.parentNode.removeChild(elmnt);
         FullimageDiv = document.createElement("div");
         FullimageDiv.id = "fullImage";
         outerdiv.appendChild(FullimageDiv);
@@ -67,19 +63,15 @@
         fullImage.src = 'Lesson-6-img/pic-0'+thumbNummer+'.jpg';
         FullimageDiv.appendChild(fullImage);
 
-
-        console.log(fullImage.src);
-
-        /* if fullImage.src = 'http://lol.ru/ololoshka.png';
-        fullImage.onload = function(){alert('картинка существует')};
-        fullImage.onerror = function(){alert('картинка не существует')}; */
+        fullImage.onerror = function()
+        {
+            fullImage.src = 'Lesson-6-img/no-image-available.jpg';
+            FullimageDiv.appendChild(fullImage);
+        };
     }
 
 
 </script>
-
-
-
 
 </body>
 </html>
