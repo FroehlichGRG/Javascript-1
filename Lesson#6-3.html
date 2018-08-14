@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Домашнее задание №6-3</title>
+</head>
+<style>
+    .wrapper
+    {
+        display:block;
+    }
+    
+    .arrow, .content
+    {
+        float: left;
+    }
+</style>
+<body>
+
+
+<script>
+
+    var i=0;
+
+    var next = "qwdqw";
+    var prev = "qw1dqw";
+
+
+    var sliderImages = ["Lesson-6-img/slider-01.jpg", "Lesson-6-img/slider-02.jpg", "Lesson-6-img/slider-03.jpg"];
+
+
+    function countSlider(id)
+    {
+        if (id = 'next')
+        {
+            i = i+1;
+            if (i>2) {i=0}
+            changeImage(i);
+        }
+
+        else if (id = 'prev')
+        {
+            i = i-1;
+            if (i<0) {i=2}
+            changeImage(i);
+        }
+    }
+
+    window.onload=function(){
+        var elem = document.createElement("img");
+        elem.setAttribute("src", sliderImages[i]);
+        elem.setAttribute("id", "imageChg");
+        document.getElementById("fullImage").appendChild(elem);
+    };
+
+
+    function changeImage(i){
+        var elem = document.getElementById("imageChg");
+        elem.setAttribute("src", sliderImages[i]);
+        document.getElementById("fullImage").appendChild(elem);
+    };
+
+
+
+</script>
+<div class="wrapper">
+    <div class="arrow prev" id="prev" onclick="countSlider(this.id)"><img src="Lesson-6-img/left-arrow.png" height="100" width="100"/></div>
+    <div id="fullImage" class="content"></div>
+    <div class="arrow next" id="next" onclick="countSlider(this.id)"><img src="Lesson-6-img/right-arrow.png" height="100" width="100"/></div>
+</div>
+
+
+
+
+</body>
+</html>

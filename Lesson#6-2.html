@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Домашнее задание №6-2</title>
     <link rel="stylesheet" href="css/lesson6-2.css">
     <script src="jscript/shopitems.js"></script>
 </head>
@@ -12,6 +12,22 @@
 
     var quantityItems = 0;
     var summaryCartItems = 0;
+
+    var Cart = {};
+
+    var mmm = 1;
+
+    arrayCounter = 1;
+
+    var cartarray = [
+        ['Артикул', 'Название товара', 'Количество', 'Цена']
+    ];
+
+    var cartarray2 = [
+        ['Артикул', 'Название товара', 'Количество', 'Цена']
+    ];
+
+    var quantity = [];
 
     var cartdivwrapper = document.createElement("div");
     cartdivwrapper.id = "cartdivwrapper";
@@ -25,9 +41,28 @@
     itemsList.id = "itemsList";
     cartdiv.appendChild(itemsList);
 
-    var itemsListnumm = document.createElement("ul");
-    itemsListnumm.id = "itemsListnumm";
+    var itemsListnumm = document.createElement("table");
+    itemsListnumm.id = "cartTable";
     itemsList.appendChild(itemsListnumm);
+
+    var rowCartNames = document.createElement("tr");
+    rowCartNames.id = "cartRow";
+    itemsListnumm.appendChild(rowCartNames);
+
+    var columnCartNames = document.createElement("td");
+    columnCartNames.id = "cartTableId";
+    columnCartNames.innerText = "id";
+    rowCartNames.appendChild(columnCartNames);
+
+    var columnCartNames = document.createElement("td");
+    columnCartNames.id = "cartTableName";
+    columnCartNames.innerText = "название";
+    rowCartNames.appendChild(columnCartNames);
+
+    var columnCartNames = document.createElement("td");
+    columnCartNames.id = "cartTablePrice";
+    columnCartNames.innerText = "цена";
+    rowCartNames.appendChild(columnCartNames);
 
     var CartText = document.createElement("p");
     CartText.innerText = "В вашей корзине " + quantityItems + " товаров.";
@@ -48,7 +83,7 @@
     for (var i=0; i<ShopItem.length; i++) {
         var innerDiv = document.createElement("div");
         innerDiv.className = "shopitm";
-        innerDiv.id = "shpitm" + i;
+        innerDiv.id = "shpitm-" + i;
         thumbnailWrapp.appendChild(innerDiv);
 
         var headrItems = document.createElement("h2");
@@ -66,16 +101,44 @@
 
         var inptItems = document.createElement("INPUT");
         inptItems.setAttribute("type", "button");
+        inptItems.setAttribute("id", "btnid-"+i);
         inptItems.setAttribute("value", "Добавить в корзину");
-        inptItems.setAttribute("onclick", "addItemToCart()");
+        inptItems.setAttribute("onclick", "addItemToCart(this.id)");
         innerDiv.appendChild(inptItems);
+
     }
 
-    function addItemToCart() {
-        var cartItemsLst = document.createElement("li");
-        cartItemsLst.innerHTML = 'Добавить товар';
-        itemsListnumm.appendChild(cartItemsLst);
+    function addItemToCart(id) {
+        idGet = '';
+        for (i = 6; i < id.length; i++) {
+            var idGet = idGet + id.charAt(i);
+        }
+
+        for (i = 0; i < cartarray.length; i++)
+        {
+            if (ShopItem[idGet].ind == cartarray[i][0] )
+            {
+                mmm++
+            }
+
+            else {
+                cartarray[arrayCounter] = [ShopItem[idGet].ind, ShopItem[idGet].name, mmm, ShopItem[idGet].price];
+            }
+        }
+
+        arrayCounter++;
+
+
+        console.log(cartarray);
+
+
+
     }
+
+
+
+
+
 
 </script>
 
