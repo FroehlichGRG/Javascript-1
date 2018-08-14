@@ -12,14 +12,13 @@
 
     var quantityItems = 0;
     var summaryCartItems = 0;
+    quantitt = 1;
 
-    var Cart = {};
-
-    var mmm = 1;
+    var cartObjectMassive = [];
 
     arrayCounter = 1;
 
-    var cartarray = [
+    /* var cartarray = [
         ['Артикул', 'Название товара', 'Количество', 'Цена']
     ];
 
@@ -27,7 +26,7 @@
         ['Артикул', 'Название товара', 'Количество', 'Цена']
     ];
 
-    var quantity = [];
+     */
 
     var cartdivwrapper = document.createElement("div");
     cartdivwrapper.id = "cartdivwrapper";
@@ -108,33 +107,84 @@
 
     }
 
+
+    /* function addItemToCart(id) {
+         idGet = '';
+         for (i = 6; i < id.length; i++) {
+             var idGet = idGet + id.charAt(i);
+         }
+
+         for (i = 0; i < cartarray.length; i++)
+         {
+             if (ShopItem[idGet].ind == cartarray[i][0] )
+             {
+                 mmm++
+             }
+
+             else {
+                 cartarray[arrayCounter] = [ShopItem[idGet].ind, ShopItem[idGet].name, mmm, ShopItem[idGet].price];
+             }
+         }
+
+         arrayCounter++;
+         console.log(cartarray);
+     }
+ */
+
     function addItemToCart(id) {
         idGet = '';
+
         for (i = 6; i < id.length; i++) {
             var idGet = idGet + id.charAt(i);
         }
 
-        for (i = 0; i < cartarray.length; i++)
-        {
-            if (ShopItem[idGet].ind == cartarray[i][0] )
-            {
-                mmm++
-            }
+        if (cartObjectMassive[idGet].quant != true)
 
-            else {
-                cartarray[arrayCounter] = [ShopItem[idGet].ind, ShopItem[idGet].name, mmm, ShopItem[idGet].price];
+        {
+            cartObjectMassive[idGet] = {
+                name: ShopItem[idGet].name,
+                price: ShopItem[idGet].price,
+                quant: quantitt
+            };
+        }
+
+        else
+        {
+            cartObjectMassive[idGet].quant++;
+        }
+
+
+
+
+        /*
+
+        if  ('quant' in cartObjectMassive[idGet])
+        {
+            console.log("cartObjectMassive[idGet]" + cartObjectMassive[idGet].quant);
+
+            quantitt++;
+
+            cartObjectMassive[idGet]
+            {
+                quant: quantitt;
             }
         }
 
-        arrayCounter++;
+        else {
 
+            cartObjectMassive[idGet] = {
+                name: ShopItem[idGet].name,
+                price: ShopItem[idGet].price,
+                quant: quantitt
+            };
+        }
 
-        console.log(cartarray);
+*/
 
+        console.log(idGet);
 
-
+        console.log(cartObjectMassive);
     }
-
 
 
 
