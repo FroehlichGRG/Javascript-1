@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gallery</title>
+    <script>
+        window.onload = function() {
+            var image = document.getElementsByTagName('img');//массив с фотками
+            for(var i = 0; i < image.length; i++){
+                image[i].onclick = changeBigPicture;//при клике на каждую картинку запускается функция
+            }
+        };
+        function changeBigPicture(event) {
+            var appDiv = document.getElementById('bigPicture');//место под большую картинку
+            appDiv.innerHTML = '';
+            var eventElement = event.target;//узнаем фотку по которой кликнули
+            var imageNameParts = eventElement.id.split('_');//строку преобразовали в массив
+            var src = 'img/big/' + imageNameParts[1] + '.jpg';
+            var imageDOMElement = document.createElement('img');
+            imageDOMElement.src = src;
+            appDiv.appendChild(imageDOMElement).style.display = "none";
+            imageDOMElement.onload = function(){
+                imageDOMElement.style.display = "block";
+            }
+            imageDOMElement.onerror = function(){
+                appDiv.removeChild(imageDOMElement);
+                alert("Error 404: File not found!")
+            }
+        }
+    </script>
+</head>
+<body>
+<div id="bigPicture">Здесь большая картинка</div>
+<div>
+    <img id="img_1" src="img/small/1.jpg" alt="">
+    <img id="img_2" src="img/small/2.jpg" alt="">
+    <img id="img_3" src="img/small/3.jpg" alt="">
+</div>
+</body>
+</html>

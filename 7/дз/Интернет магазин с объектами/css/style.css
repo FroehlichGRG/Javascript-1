@@ -1,0 +1,40 @@
+/* LESS Document */
+.wrapper .content {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.wrapper .content nav ul {
+  list-style: none;
+  padding: 0;
+}
+.wrapper .content nav ul li a {
+  display: block;
+  text-decoration: none;
+}
+.wrapper .content main .big_picture {
+  margin: 0 0 0 50%;
+}
+.wrapper .content main .big_picture img {
+  width: 300px;
+  height: 300px;
+}
+.wrapper .content main .big_picture::before {
+  content: '<';
+  background-color: aqua;
+  font-size: 2em;
+}
+.wrapper .content main .big_picture::after {
+  content: '>';
+  background-color: aqua;
+  font-size: 2em;
+}
+.wrapper .content main .small_pictures {
+  margin: 20px 0;
+}
+.wrapper .content main .small_pictures img:first-child {
+  margin-right: 15px;
+}
+#letby {
+  flex-direction: column;
+}
