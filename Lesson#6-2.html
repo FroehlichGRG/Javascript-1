@@ -10,23 +10,9 @@
 
 <script>
 
-    var quantityItems = 0;
-    var summaryCartItems = 0;
-    quantitt = 1;
-
-    var cartObjectMassive = [];
+    var Stoimost = 0;
 
     arrayCounter = 1;
-
-    /* var cartarray = [
-        ['Артикул', 'Название товара', 'Количество', 'Цена']
-    ];
-
-    var cartarray2 = [
-        ['Артикул', 'Название товара', 'Количество', 'Цена']
-    ];
-
-     */
 
     var cartdivwrapper = document.createElement("div");
     cartdivwrapper.id = "cartdivwrapper";
@@ -40,35 +26,12 @@
     itemsList.id = "itemsList";
     cartdiv.appendChild(itemsList);
 
-    var itemsListnumm = document.createElement("table");
-    itemsListnumm.id = "cartTable";
-    itemsList.appendChild(itemsListnumm);
-
-    var rowCartNames = document.createElement("tr");
-    rowCartNames.id = "cartRow";
-    itemsListnumm.appendChild(rowCartNames);
-
-    var columnCartNames = document.createElement("td");
-    columnCartNames.id = "cartTableId";
-    columnCartNames.innerText = "id";
-    rowCartNames.appendChild(columnCartNames);
-
-    var columnCartNames = document.createElement("td");
-    columnCartNames.id = "cartTableName";
-    columnCartNames.innerText = "название";
-    rowCartNames.appendChild(columnCartNames);
-
-    var columnCartNames = document.createElement("td");
+    var columnCartNames = document.createElement("ul");
     columnCartNames.id = "cartTablePrice";
-    columnCartNames.innerText = "цена";
-    rowCartNames.appendChild(columnCartNames);
+    cartdiv.appendChild(columnCartNames);
 
     var CartText = document.createElement("p");
-    CartText.innerText = "В вашей корзине " + quantityItems + " товаров.";
-    cartdiv.appendChild(CartText);
-
-    CartText = document.createElement("p");
-    CartText.innerText = "На общую сумму " + summaryCartItems + " рублей.";
+    CartText.innerHTML = "В вашей корзине товаров на <span id='stimst'>0</span> рублей.";
     cartdiv.appendChild(CartText);
 
     var outerdiv = document.createElement("div");
@@ -107,89 +70,81 @@
 
     }
 
+    var cartObjectMassive = [];
 
-    /* function addItemToCart(id) {
-         idGet = '';
-         for (i = 6; i < id.length; i++) {
-             var idGet = idGet + id.charAt(i);
-         }
-
-         for (i = 0; i < cartarray.length; i++)
-         {
-             if (ShopItem[idGet].ind == cartarray[i][0] )
-             {
-                 mmm++
-             }
-
-             else {
-                 cartarray[arrayCounter] = [ShopItem[idGet].ind, ShopItem[idGet].name, mmm, ShopItem[idGet].price];
-             }
-         }
-
-         arrayCounter++;
-         console.log(cartarray);
-     }
- */
+    for (i=0; i < ShopItem.length; i++)
+    {
+        cartObjectMassive[i] = {
+            name: null,
+            price: null,
+            quant: null
+        }
+    }
 
     function addItemToCart(id) {
+
         idGet = '';
 
         for (i = 6; i < id.length; i++) {
             var idGet = idGet + id.charAt(i);
         }
 
-        if (cartObjectMassive[idGet].quant != true)
-
+        if (cartObjectMassive[idGet].quant == null)
         {
             cartObjectMassive[idGet] = {
                 name: ShopItem[idGet].name,
                 price: ShopItem[idGet].price,
-                quant: quantitt
+                quant: 1
             };
-        }
-
-        else
-        {
-            cartObjectMassive[idGet].quant++;
-        }
-
-
-
-
-        /*
-
-        if  ('quant' in cartObjectMassive[idGet])
-        {
-            console.log("cartObjectMassive[idGet]" + cartObjectMassive[idGet].quant);
-
-            quantitt++;
-
-            cartObjectMassive[idGet]
-            {
-                quant: quantitt;
-            }
         }
 
         else {
+            var a = cartObjectMassive[idGet].quant;
+            a++;
 
             cartObjectMassive[idGet] = {
                 name: ShopItem[idGet].name,
                 price: ShopItem[idGet].price,
-                quant: quantitt
+                quant: a
             };
         }
 
-*/
+        i=0;
 
-        console.log(idGet);
+        var ul = document.getElementById("cartTablePrice");
+        ul.innerHTML = "";
 
-        console.log(cartObjectMassive);
+        for (i=0; i<cartObjectMassive.length; i++)
+
+        {
+            if (cartObjectMassive[i].name == null)
+            {
+                continue;
+            }
+
+            else
+
+            {
+                var cartElements = document.createElement("li");
+                cartElements.id = "cartElements";
+                cartElements.innerHTML = cartObjectMassive[i].name + " " + cartObjectMassive[i].price+ " " + cartObjectMassive[i].quant;
+                cartTablePrice.appendChild(cartElements);
+            }
+        }
+
+        Stoimost=0;
+
+        for (i = 0; i<cartObjectMassive.length; i++)
+        {
+            a = cartObjectMassive[i].price * cartObjectMassive[i].quant;
+
+            console.log(cartObjectMassive[i].price);
+            console.log(cartObjectMassive[i].quant);
+
+            Stoimost+= a;
+            document.getElementById("stimst").innerHTML = Stoimost;
+        }
     }
-
-
-
-
-
 </script>
 
 </body>
