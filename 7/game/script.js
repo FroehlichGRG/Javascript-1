@@ -6,6 +6,23 @@ var board = document.getElementsByClassName('board')[0], // Игровое по�
     nullCount = 9, // Кол-во оставшихся ходов
     winner = null;
 
+
+var score = new Object();
+score.krestiki = 0;
+score.noliki = 0;
+
+var scoreBlock = document.getElementById("score");
+var scoreText = document.createElement("p");
+scoreText.setAttribute("id", "scrTxt");
+var node = document.createTextNode("Текущий счет: крестики: " + score.krestiki + " нолики: " + score.noliki);
+scoreText.appendChild(node);
+scoreBlock.appendChild(scoreText);
+
+var scoreField = document.getElementById('scor');
+var headrItems = document.createElement("p");
+
+
+
 player.innerText = 'Сейчас ходит X';
 
 // Генерация игрового поля
@@ -35,8 +52,24 @@ function tableClick() {
             (gameTable[0][x] === gamer1 && gameTable[1][x] === gamer1 && gameTable[2][x] === gamer1) ||
             (gameTable[0][0] === gamer1 && gameTable[1][1] === gamer1 && gameTable[2][2] === gamer1) ||
             (gameTable[2][0] === gamer1 && gameTable[1][1] === gamer1 && gameTable[0][2] === gamer1)) {
-            winner = gamer1; 
+            winner = gamer1;
+
+            if (winner == true) { score.krestiki++ } else if (winner == false) { score.noliki++ } else { score.noliki }
+
+            var scrTxt = document.getElementById('scrTxt');
+            scrTxt.parentNode.removeChild(scrTxt);
+
+            var scoreBlock = document.getElementById("score");
+            var scoreText = document.createElement("p");
+            scoreText.setAttribute("id", "scrTxt");
+            var node = document.createTextNode("Текущий счет: крестики: " + score.krestiki + " нолики: " + score.noliki);
+            scoreText.appendChild(node);
+            scoreBlock.appendChild(scoreText);
+
+            /* console.log(score); */
         }
+
+
         gamer1 = !gamer1;
         player.innerText = gamer1 ? 'Сейчас ходит X' : 'Сейчас ходит O';
         if (nullCount == 0 || winner !== null) {
@@ -49,6 +82,7 @@ function tableClick() {
                 reset();
             }
         }
+
     }
     else {
         alert('Недопустимый ход');

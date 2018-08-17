@@ -45,3 +45,11 @@
 .buttom-wrap {
     text-align: center;
 }
+#score *
+{
+    text-align: center;
+}
+
+#scrTxt *{
+    text-align: center;
+}

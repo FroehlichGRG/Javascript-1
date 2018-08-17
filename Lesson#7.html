@@ -3,8 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        .cell, .inner-cell
+        {
+            width: 60px;
+            height: 60px;
+            border: 1px solid #333333;
+        }
+
+        .inner-cell:hover
+        {
+            cursor: pointer;
+        }
+    </style>
 </head>
+
+<script>
+    var board = document.getElementsByClassName('board')[0], // Игровое поле
+        player = document.getElementsByClassName('gamer')[0], // Строка хода
+        element, innerElement,
+        gamer1 = true, // Показывает, какой игрок сейчас ходит
+        gameTable = [[null, null, null], [null, null, null], [null, null, null]], // Матрица игры
+        nullCount = 9, // Кол-во оставшихся ходов
+        winner = null;
+
+
+    for (var i = 0; i < 9; i++) {
+        element = document.createElement('div');
+        element.classList.add('cell');
+        innerElement = document.createElement('div');
+        innerElement.classList.add('inner-cell');
+        innerElement.onclick = tableClick;
+        innerElement.setAttribute('x', (i % 3).toString());
+        innerElement.setAttribute('y', parseInt(i / 3).toString());
+        element.appendChild(innerElement);
+        board.appendChild(element);
+    }
+
+    function tableClick() {
+        if (innerText = '')
+        {this.innerText = "e"; console.log("x");}
+
+    }
+
+</script>
+
 <body>
 
+<div class="gamer"></div>
+<div class="buttom-wrap">
+    <span class="button">Начать игру заново</span>
+</div>
+<div id="score"></div>
+<div class="board"></div>
 </body>
 </html>

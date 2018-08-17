@@ -26,10 +26,24 @@ td.game-table-cell{
 .food-unit{
     background-color: red;
 }
+
+.mushroom-unit{
+    background-color: yellow;
+}
+
 .buttons{
     display: inline-block;
 }
 .wrap{
     margin: 30px auto 0;
+    text-align: center;
+}
+
+#score *
+{
+    text-align: center;
+}
+
+#scrTxt *{
     text-align: center;
 }
